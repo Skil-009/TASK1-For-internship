@@ -1,0 +1,22 @@
+Below is a summary of the findings from the Nmap scan.
+Host 1: Router / Gateway
+IP Address: 192.168.1.1
+OS Detected: Linux 3.x
+Open Ports:
+53/tcp: domain (DNS) - Used for resolving domain names.
+80/tcp: http (HTTP) - Likely a web-based router admin panel.
+443/tcp: https (HTTPS) - Secure web-based router admin panel.
+Host 2: User's Laptop
+IP Address: 192.168.1.104
+OS Detected: Windows 10
+Open Ports:
+135/tcp: msrpc (Microsoft RPC)
+139/tcp: netbios-ssn (NetBIOS Session Service)
+445/tcp: microsoft-ds (SMB file sharing)
+Host 3: Network Printer
+IP Address: 192.168.1.115
+OS Detected: HP Printer (Embedded Linux)
+Open Ports:
+80/tcp: http (Web configuration interface)
+631/tcp: ipp (Internet Printing Protocol)
+9100/tcp: jetdirect (HP Jetdirect printing)
