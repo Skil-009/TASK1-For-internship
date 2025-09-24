@@ -1,0 +1,12 @@
+1.Router (192.168.1.1):
+Finding: Both HTTP (port 80) and HTTPS (port 443) are open for the admin panel.
+Risk: Accessing the admin panel via HTTP sends login credentials in cleartext, which can be intercepted on the network.
+Recommendation: Disable the HTTP interface and only use HTTPS for administrative access. Ensure the router's firmware is up-to-date and uses a strong, non-default password.
+User's Laptop (192.168.1.104):
+2.Finding: Standard Windows file and printer sharing ports (139, 445) are open.
+Risk: These ports, particularly SMB (port 445), have historically been targets for worms and malware (e.g., WannaCry). If file sharing is not needed, these ports present an unnecessary attack surface.
+Recommendation: Ensure the Windows Firewall is properly configured to restrict access. Disable file and printer sharing if not in use. Keep the operating system fully patched.
+Network Printer (192.168.1.115):
+3.Finding: The printer has an open web interface (port 80) and printing services.
+Risk: Unsecured printer web interfaces can leak information or be misused. The jetdirect service on port 9100 is often unsecured, allowing anyone on the network to send print jobs.
+Recommendation: Set a strong administrative password for the printer's web interface. If possible, restrict access to specific IP addresses.
