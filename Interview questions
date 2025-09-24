@@ -1,0 +1,33 @@
+What is an open port?
+An open port is a network port on a computer or device that is configured to accept incoming packets from the network. It essentially acts as a communication endpoint, indicating that a specific service or application is listening for connections on that port number.
+2. How does Nmap perform a TCP SYN scan?
+A TCP SYN scan (-sS) is also known as a "half-open" scan. It works by:
+Nmap sends a TCP packet with the SYN (synchronize) flag set to the target port.
+If the port is open, the target responds with a SYN/ACK (synchronize/acknowledge) packet. Nmap then sends a RST (reset) packet to tear down the connection before a full three-way handshake is completed.
+If the port is closed, the target responds with a RST packet.
+Because a full connection is never established, this method is fast and stealthy.
+3. What risks are associated with open ports?
+Open ports can pose significant security risks:
+Attack Vector: They provide an entry point for attackers to exploit vulnerabilities in the services running on them.
+Information Leakage: Services on open ports can reveal information about the system, such as OS type, software versions, and usernames.
+Denial-of-Service (DoS): Attackers can flood open ports with traffic, overwhelming the service and making it unavailable.
+4. What is the difference between TCP and UDP scanning?
+TCP Scanning: Scans for services using the Transmission Control Protocol, which is connection-oriented. It establishes a reliable connection (three-way handshake). TCP scans are generally more accurate and reliable because the protocol provides responses for both open and closed ports.
+UDP Scanning: Scans for services using the User Datagram Protocol, which is connectionless. UDP does not establish a connection before sending data. Scanning UDP ports is slower and less reliable because a port might not respond at all, forcing the scanner to time out and assume it's open or filtered.
+5. How can open ports be secured?
+Open ports can be secured by:
+Closing Unnecessary Ports: If a service is not needed, disable it to close the associated port.
+Using Firewalls: Implement firewalls (both network and host-based) to create rules that restrict access to open ports, allowing only trusted IP addresses or networks to connect.
+Patching and Updating: Regularly update the software and services running on open ports to patch known vulnerabilities.
+Principle of Least Privilege: Configure services to run with the minimum permissions necessary.
+6. What is a firewall's role regarding ports?
+A firewall acts as a gatekeeper for network traffic. Its role regarding ports is to filter incoming and outgoing traffic based on a defined set of security rules. It can be configured to:
+Block traffic to specific ports.
+Allow traffic to specific ports from trusted sources.
+Perform stateful inspection, which tracks active connections and allows return traffic for established sessions.
+7. What is a port scan and why do attackers perform it?
+A port scan is the process of sending messages to a host or a range of hosts to identify which ports are open and listening. Attackers perform port scans during the reconnaissance phase of an attack to gather intelligence about a target, such as what services are running, their version numbers, and the operating system. This information helps them find potential vulnerabilities to exploit.
+8. How does Wireshark complement port scanning?
+Nmap and Wireshark are powerful tools that complement each other:
+Nmap (The "What"): Tells you what ports are open, what services are running, and what OS is detected.
+Wireshark (The "How"): Is a packet analyzer that lets you see how the scan works. You can use Wireshark to capture the raw packets of an Nmap scan to see the SYN, SYN/ACK, and RST packets being exchanged. It's excellent for deep-dive analysis, troubleshooting, and understanding the underlying network protocols.
